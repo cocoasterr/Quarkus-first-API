@@ -1,0 +1,428 @@
+---
+openapi: 3.0.3
+info:
+  title: kawahedukasi API
+  version: 1.0.0-SNAPSHOT
+paths:
+  /competition/add/countries/{name}:
+    post:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /competition/add/matches/{name}:
+    post:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonObject'
+      responses:
+        "200":
+          description: OK
+  /competition/add/teams/{name}:
+    post:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: country_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/add/turnaments/{name}:
+    post:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: countries_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/countries:
+    get:
+      tags:
+      - Main _turnament
+      responses:
+        "200":
+          description: OK
+  /competition/delete/countries/{id}:
+    delete:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/delete/matches/{id}:
+    delete:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/delete/teams/{id}:
+    delete:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/delete/tournaments/{id}:
+    delete:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /competition/matches:
+    get:
+      tags:
+      - Main _turnament
+      responses:
+        "200":
+          description: OK
+  /competition/teams:
+    get:
+      tags:
+      - Main _turnament
+      responses:
+        "200":
+          description: OK
+  /competition/tournaments:
+    get:
+      tags:
+      - Main _turnament
+      responses:
+        "200":
+          description: OK
+  /competition/update/countries/{id}:
+    put:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /competition/update/matches/{id}:
+    put:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonObject'
+      responses:
+        "200":
+          description: OK
+  /competition/update/teams/{id}:
+    put:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - name: country_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /competition/update/tournaments/{id}:
+    put:
+      tags:
+      - Main _turnament
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      - name: Country_id
+        in: query
+        schema:
+          format: int64
+          type: integer
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /kalkulator/luasLingkaran:
+    get:
+      tags:
+      - Latihan 2
+      parameters:
+      - name: val1
+        in: query
+        schema:
+          format: int32
+          type: integer
+      - name: val2
+        in: query
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /kalkulator/luasLingkaran/body:
+    post:
+      tags:
+      - Latihan 2
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /kalkulator/luasLingkaran/header:
+    get:
+      tags:
+      - Latihan 2
+      parameters:
+      - name: val1
+        in: header
+        schema:
+          format: int32
+          type: integer
+      - name: val2
+        in: header
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /kalkulator/luasLingkaran/{val1}/{val2}:
+    get:
+      tags:
+      - Latihan 2
+      parameters:
+      - name: val1
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      - name: val2
+        in: path
+        required: true
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string
+  /menuJson:
+    get:
+      tags:
+      - CRUD _ Latihan 3
+      responses:
+        "200":
+          description: OK
+    post:
+      tags:
+      - CRUD _ Latihan 3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonObject'
+      responses:
+        "200":
+          description: OK
+  /menuJson/delete/{name}:
+    delete:
+      tags:
+      - CRUD _ Latihan 3
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+  /menuJson/update/{name}:
+    put:
+      tags:
+      - CRUD _ Latihan 3
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: amountStok
+        in: query
+        schema:
+          format: int32
+          type: integer
+      - name: description
+        in: query
+        schema:
+          type: string
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: price
+        in: query
+        schema:
+          format: int32
+          type: integer
+      responses:
+        "200":
+          description: OK
+  /menuJson/updateViaJson:
+    put:
+      tags:
+      - CRUD _ Latihan 3
+      responses:
+        "200":
+          description: OK
+  /menuJson/updateViaJson/{name}:
+    put:
+      tags:
+      - CRUD _ Latihan 3
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonObject'
+      responses:
+        "200":
+          description: OK
+  /menuJson/{findFood}:
+    get:
+      tags:
+      - CRUD _ Latihan 3
+      parameters:
+      - name: findFood
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    JsonObject:
+      type: array

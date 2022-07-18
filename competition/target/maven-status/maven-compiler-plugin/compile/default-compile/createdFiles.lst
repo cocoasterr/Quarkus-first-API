@@ -1,0 +1,15 @@
+competition\model\AuditModel.class
+competition\service\CountryService.class
+competition\utility\BasicUtil.class
+competition\controller\TeamController.class
+competition\model\Tournament.class
+competition\controller\MatchController.class
+competition\service\MatchService.class
+competition\service\TournamentService.class
+competition\service\TeamService.class
+competition\controller\TournamentController.class
+META-INF\panache-archive.marker
+competition\model\Match.class
+competition\model\Country.class
+competition\model\Team.class
+competition\controller\CountryController.class
